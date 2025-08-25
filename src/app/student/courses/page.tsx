@@ -15,7 +15,11 @@ export default function StudentCourses() {
     <div className="space-y-4">
       <div>
         <h2 className="text-3xl font-extrabold tracking-tight">My Courses</h2>
-        <p className="text-sm text-zinc-500">Courses you're currently enrolled in</p>
+        {/* Use either of the two lines below */}
+        {/* Option A: HTML entity */}
+        <p className="text-sm text-zinc-500">Courses you&apos;re currently enrolled in</p>
+        {/* Option B: Curly apostrophe (no lint error) */}
+        {/* <p className="text-sm text-zinc-500">Courses you’re currently enrolled in</p> */}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -24,13 +28,17 @@ export default function StudentCourses() {
             <CardHeader className="pb-2">
               <div className="flex items-start justify-between">
                 <CardTitle className="text-lg">{c.title}</CardTitle>
-                <span className="px-2 py-0.5 rounded-md text-[11px] bg-zinc-100 text-zinc-700 border border-zinc-200">{c.grade}</span>
+                <span className="px-2 py-0.5 rounded-md text-[11px] bg-zinc-100 text-zinc-700 border border-zinc-200">
+                  {c.grade}
+                </span>
               </div>
               <div className="text-sm text-zinc-500">Instructor: {c.instructor}</div>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <div className="text-sm text-zinc-600 mb-1">Progress <span className="ml-1 text-zinc-500">{c.pct}%</span></div>
+                <div className="text-sm text-zinc-600 mb-1">
+                  Progress <span className="ml-1 text-zinc-500">{c.pct}%</span>
+                </div>
                 <div className="h-2 rounded-full bg-zinc-200 overflow-hidden">
                   <div className="h-full bg-blue-600" style={{ width: `${c.pct}%` }} />
                 </div>
